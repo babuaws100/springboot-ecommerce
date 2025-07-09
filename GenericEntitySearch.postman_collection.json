@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "5998c21c-e51c-42ca-91cc-adfb332f5849",
+		"name": "GenericEntitySearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1795939"
+	},
+	"item": [
+		{
+			"name": "user_search_paged",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"entity\": \"user\",\r\n    \"page\": 0,\r\n    \"size\": 3,\r\n    \"filters\": [\r\n        { \"field\": \"age\", \"op\": \">\", \"value\": 25 }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/search/paged",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"search",
+						"paged"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/api/search \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"entity\": \"cart\",\r\n    \"filters\": [\r\n      { \"field\": \"user.age\", \"op\": \">\", \"value\": 25 },\r\n      { \"field\": \"cartProducts.product.id\", \"op\": \"=\", \"value\": 10 }\r\n    ]\r\n  }'"
+			},
+			"response": []
+		},
+		{
+			"name": "user_search_multi_params",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"entity\": \"user\",\r\n    \"filters\": [\r\n      { \"field\": \"age\", \"op\": \"<\", \"value\": 25 },\r\n      { \"field\": \"name\", \"op\": \"like\", \"value\": \"ra\" }\r\n    ]\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"search"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/api/search \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"entity\": \"cart\",\r\n    \"filters\": [\r\n      { \"field\": \"user.age\", \"op\": \">\", \"value\": 25 },\r\n      { \"field\": \"cartProducts.product.id\", \"op\": \"=\", \"value\": 10 }\r\n    ]\r\n  }'"
+			},
+			"response": []
+		},
+		{
+			"name": "cart_view_search",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"entity\": \"cartProductCategory\",\r\n    \"filters\": [\r\n      { \"field\": \"productName\", \"op\": \"=\", \"value\": \"Pineapple4\" }\r\n    ]\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"search"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/api/search \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"entity\": \"cartProductCategory\",\r\n    \"filters\": [\r\n      { \"field\": \"productName\", \"op\": \"=\", \"value\": \"Pineapple4\" }\r\n    ]\r\n  }'\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "cart_view_search_paged",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"entity\": \"cartProductCategory\",\r\n    \"filters\": [\r\n      { \"field\": \"productName\", \"op\": \"=\", \"value\": \"Pineapple4\" }\r\n    ]\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"search"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/api/search \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"entity\": \"cartProductCategory\",\r\n    \"filters\": [\r\n      { \"field\": \"productName\", \"op\": \"=\", \"value\": \"Pineapple4\" }\r\n    ]\r\n  }'\r\n"
+			},
+			"response": []
+		}
+	]
+}
