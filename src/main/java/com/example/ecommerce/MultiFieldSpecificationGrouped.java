@@ -52,9 +52,13 @@ public class MultiFieldSpecificationGrouped<T> implements Specification<T> {
         Object value = filter.getValue();
         return switch (filter.getOp()) {
             case "=" -> cb.equal(path, value);
-            case ">" -> cb.greaterThan(path.as(Comparable.class), (Comparable) value);
-            case "<" -> cb.lessThan(path.as(Comparable.class), (Comparable) value);
+            case ">" -> cb.greaterThan((Path<? extends Comparable<Object>>) path, (Comparable<Object>) filter.getValue());
+            case "<" -> cb.lessThan((Path<? extends Comparable<Object>>) path, (Comparable<Object>) filter.getValue());
+            case ">=" -> cb.greaterThanOrEqualTo((Path<? extends Comparable<Object>>) path, (Comparable<Object>) filter.getValue());
+            case "<=" -> cb.lessThanOrEqualTo((Path<? extends Comparable<Object>>) path, (Comparable<Object>) filter.getValue());
             case "like" -> cb.like(path.as(String.class), "%" + value + "%");
+            case "like%" -> cb.like(path.as(String.class), value + "%");
+            case "%like" -> cb.like(path.as(String.class), "%" + value);
             default -> throw new IllegalArgumentException("Unsupported op: " + filter.getOp());
         };
     }

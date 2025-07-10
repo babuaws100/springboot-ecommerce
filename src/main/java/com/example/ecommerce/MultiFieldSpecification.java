@@ -30,7 +30,11 @@ public class MultiFieldSpecification<T> implements Specification<T> {
                 case "=" -> cb.equal(path, filter.getValue());
                 case ">" -> cb.greaterThan((Path<? extends Comparable<Object>>) path, (Comparable<Object>) filter.getValue());
                 case "<" -> cb.lessThan((Path<? extends Comparable<Object>>) path, (Comparable<Object>) filter.getValue());
+                case ">=" -> cb.greaterThanOrEqualTo((Path<? extends Comparable<Object>>) path, (Comparable<Object>) filter.getValue());
+                case "<=" -> cb.lessThanOrEqualTo((Path<? extends Comparable<Object>>) path, (Comparable<Object>) filter.getValue());
                 case "like" -> cb.like(path.as(String.class), "%" + filter.getValue() + "%");
+                case "like%" -> cb.like(path.as(String.class), filter.getValue() + "%");
+                case "%like" -> cb.like(path.as(String.class), "%" + filter.getValue());
                 default -> throw new IllegalArgumentException("Unsupported op: " + filter.getOp());
             };
 

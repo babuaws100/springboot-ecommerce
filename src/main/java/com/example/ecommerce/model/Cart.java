@@ -13,9 +13,9 @@ public class Cart {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private User user;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany
     private List<CartProduct> cartProducts;
 }

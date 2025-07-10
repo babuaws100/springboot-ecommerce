@@ -146,6 +146,76 @@
 				"description": "Generated from cURL: curl -X POST http://localhost:8080/api/search \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"entity\": \"cartProductCategory\",\r\n    \"filters\": [\r\n      { \"field\": \"productName\", \"op\": \"=\", \"value\": \"Pineapple4\" }\r\n    ]\r\n  }'\r\n"
 			},
 			"response": []
+		},
+		{
+			"name": "product_multi_entity_search_not_recommended",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"entity\": \"product\",\r\n    \"filters\": [\r\n      { \"field\": \"id\", \"op\": \"=\", \"value\": 5 },\r\n      { \"field\": \"category.name\", \"op\": \"=\", \"value\": \"Electronics\" }\r\n    ]\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"search"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/api/search \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"entity\": \"cart\",\r\n    \"filters\": [\r\n      { \"field\": \"user.age\", \"op\": \">\", \"value\": 25 },\r\n      { \"field\": \"cartProducts.product.id\", \"op\": \"=\", \"value\": 10 }\r\n    ]\r\n  }'"
+			},
+			"response": []
+		},
+		{
+			"name": "cart_multi_entity_search_not_recommended",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"entity\": \"user\",\r\n    \"filters\": [\r\n      { \"field\": \"age\", \"op\": \"<\", \"value\": 25 },\r\n      { \"field\": \"name\", \"op\": \"like\", \"value\": \"ra\" }\r\n    ]\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"search"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/api/search \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"entity\": \"cart\",\r\n    \"filters\": [\r\n      { \"field\": \"user.age\", \"op\": \">\", \"value\": 25 },\r\n      { \"field\": \"cartProducts.product.id\", \"op\": \"=\", \"value\": 10 }\r\n    ]\r\n  }'"
+			},
+			"response": []
 		}
 	]
 }
